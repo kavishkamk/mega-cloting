@@ -4,7 +4,7 @@ import ProductCard from "../../components/product-card/product-card.component";
 
 import { ShopDataContext } from "../../contexts/shop-date-context";
 
-import { CategoryTitle, categoryContainer } from "./category.styles";
+import { CategoryTitle, CategoryContainer } from "./category.styles";
 
 const Category = () => {
 
@@ -19,11 +19,11 @@ const Category = () => {
     return (
         <>
             <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
-            <categoryContainer>
+            <CategoryContainer>
                 {
                     products && products.map(product => (<ProductCard key={product.id} product={product} />))
                 }
-            </categoryContainer>
+            </CategoryContainer>
         </>
     )
 
