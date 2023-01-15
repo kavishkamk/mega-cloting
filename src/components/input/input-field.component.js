@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from "react";
 
-import "./form-input.styles.scss";
+import { FormInput, FormInputLabel, Group } from "./form-input.styles";
 
 const formReducer = (state, action) => {
     switch (action.type) {
@@ -30,26 +30,25 @@ const InputField = props => {
     }, [id, onInput, value]);
 
     return (
-        <div className="group">
-            <input
+        <Group>
+            <FormInput
                 id={props.id}
                 type={props.type}
                 required={props.required}
                 onChange={changeHandleEvent}
                 value={inputStatus.value}
-                className="form-input"
             />
             {props.label &&
                 (
-                    <label
+                    <FormInputLabel
                         htmlFor={props.id}
-                        className={`${inputStatus.value ? "shrink" : ""} form-input-label`}
+                        shrink={inputStatus.value ? "shrink" : ""}
                     >
                         {props.label}
-                    </label>
+                    </FormInputLabel>
                 )
             }
-        </div>
+        </Group>
     );
 }
 

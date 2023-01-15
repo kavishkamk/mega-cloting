@@ -82,8 +82,6 @@ export const getCategoriesAndDocuments = async () => {
 export const createUserDocumentFromAuth = async (userAuth, additionalInfo) => {
     const docRef = doc(firestore, "users", userAuth.uid);
     const docSnap = await getDoc(docRef);
-    console.log(docRef);
-    console.log(docSnap);
 
     if (!docSnap.exists()) {
         const { displayName, email } = userAuth;
