@@ -35,7 +35,7 @@ const clearCartItem = (cartItems, productToRemove) => {
     return cartItems.filter(product => product.id !== productToRemove.id);
 }
 
-export const setIsOpen = isOpen => createAction(CART_ACTIONS.SET_IS_OPEN, !isOpen);
+export const setIsOpen = isOpen => createAction(CART_ACTIONS.SET_IS_OPEN, isOpen);
 
 export const addItemToCart = (cartItems, productToAdd) => {
     const newCartItems = addCartItem(cartItems, productToAdd);
