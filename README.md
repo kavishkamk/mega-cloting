@@ -10,3 +10,4 @@ https://flourishing-crumble-1999cf.netlify.app/
 - used styled components
 - Context for global state handling
 - React router v6
+- migrate context (v1) to redux store
