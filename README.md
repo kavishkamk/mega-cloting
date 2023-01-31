@@ -11,3 +11,5 @@ https://flourishing-crumble-1999cf.netlify.app/
 - Context for global state handling
 - React router v6
 - migrate context (v1) to redux store
+- redux-persist for cashing
+- use redux thunk
