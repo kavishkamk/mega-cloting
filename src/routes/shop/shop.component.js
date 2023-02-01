@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 
-import { fetchCategoriesAsync } from "../../store/category/categories.action";
+import { fetchCategoriesStart } from "../../store/category/categories.action";
 
 import CategoriesPreview from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";
@@ -15,7 +15,7 @@ const Shop = () => {
 
     // get category map data and set into redux store
     useEffect(() => {
-        dispatch(fetchCategoriesAsync());
+        dispatch(fetchCategoriesStart());
     }, []);
 
     return (
