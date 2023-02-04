@@ -8,12 +8,12 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectCartIsOpen } from "../../store/cart/cart.selector";
 
-import { signOutUser } from "../../utils/firebase/firebase.util";
-
 import { LogoContainer, NavLink, NavLinks, NavigationContainer } from "./navigation.styles";
 
-import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
 import { setIsOpen } from "../../store/cart/cart.action";
+import { signOut } from "../../store/user/user.action";
+
+import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
 
 const Navigation = () => {
 
@@ -22,9 +22,8 @@ const Navigation = () => {
     const currentUser = useSelector(selectCurrentUser);
     const isOpen = useSelector(selectCartIsOpen);
 
-    const signOutHandler = async () => {
-        await signOutUser();
-    };
+    const signOutHandler = () => dispatch(signOut());
+
 
     const toggleCartisOpen = () => {
         dispatch(setIsOpen(!isOpen));

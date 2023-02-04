@@ -75,7 +75,7 @@ export const getCategoriesAndDocuments = async () => {
     return categories;
 };
 
-export const createUserDocumentFromAuth = async (userAuth, additionalInfo) => {
+export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) => {
     const docRef = doc(firestore, "users", userAuth.uid);
     const docSnap = await getDoc(docRef);
 
@@ -94,6 +94,8 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInfo) => {
             console.log("error creating user" + err);
         }
     };
+
+    return docSnap;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -110,4 +112,17 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = onAuthStateChanged(
+            auth,
+            (userAuth) => {
+                unsubscribe();
+                resolve(userAuth);
+            },
+            reject
+        )
+    });
+};
