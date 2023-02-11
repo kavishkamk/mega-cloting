@@ -10,6 +10,7 @@ https://flourishing-crumble-1999cf.netlify.app/
 - used styled components
 - Context for global state handling
 - React router v6
-- migrate context (v1) to redux store
+- migrate context ([v1](https://github.com/kavishkamk/mega-cloting/tree/v1)) to redux store
 - redux-persist for cashing
-- use redux thunk
+- use redux thunk ([v2](https://github.com/kavishkamk/mega-cloting/tree/v2))
+- use redex-saga ([v3](https://github.com/kavishkamk/mega-cloting/tree/v3))
