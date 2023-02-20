@@ -14,3 +14,5 @@ https://flourishing-crumble-1999cf.netlify.app/
 - redux-persist for cashing
 - use redux thunk ([v2](https://github.com/kavishkamk/mega-cloting/tree/v2))
 - use redex-saga ([v3](https://github.com/kavishkamk/mega-cloting/tree/v3))
+- add stripe payments
+- add serverless function for payments (using netlify serverless functions)
