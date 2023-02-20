@@ -1,11 +1,17 @@
 
+import { FC, MouseEventHandler } from "react";
+
 import { useSelector } from "react-redux";
 
 import { selectCartCount } from "../../store/cart/cart.selector";
 
 import { CartIconContainer, ItemCount, ShoppingIcon } from "./cart-icon.styles";
 
-const CartIcon = ({ onClick }) => {
+type CartIconProps = {
+    onClick: MouseEventHandler<HTMLDivElement>;
+};
+
+const CartIcon: FC<CartIconProps> = ({ onClick }) => {
 
     const cartCount = useSelector(selectCartCount);
 

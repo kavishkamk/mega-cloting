@@ -1,10 +1,18 @@
-import React, { useEffect, useReducer } from "react";
+import React, { ChangeEvent, FC, InputHTMLAttributes, useEffect, useReducer } from "react";
 
 import { FormInput, FormInputLabel, Group } from "./form-input.styles";
 
-const formReducer = (state, action) => {
+enum FormAction {
+    CHANGE = "CHANGE"
+};
+
+type FormState = {
+    readonly value: any
+};
+
+const formReducer = (state: FormState, action: any): FormState => {
     switch (action.type) {
-        case "CHANGE":
+        case FormAction.CHANGE:
             return {
                 ...state,
                 value: action.value
@@ -14,11 +22,16 @@ const formReducer = (state, action) => {
     };
 };
 
-const InputField = props => {
+type InputFieldProps = {
+    label: string;
+    onInput: (id: string | undefined, value: any) => void;
+} & InputHTMLAttributes<HTMLInputElement>;
 
-    const [inputStatus, dispatcher] = useReducer(formReducer, { value: props.value || "" });
+const InputField: FC<InputFieldProps> = props => {
 
-    const changeHandleEvent = event => {
+    const [inputStatus, dispatcher] = useReducer(formReducer, { value: props.value || "" } as FormState);
+
+    const changeHandleEvent = (event: ChangeEvent<HTMLInputElement>) => {
         dispatcher({ type: "CHANGE", value: event.target.value });
     };
 
@@ -42,7 +55,7 @@ const InputField = props => {
                 (
                     <FormInputLabel
                         htmlFor={props.id}
-                        shrink={inputStatus.value ? "shrink" : ""}
+                        shrink={Boolean(inputStatus.value || "")}
                     >
                         {props.label}
                     </FormInputLabel>
