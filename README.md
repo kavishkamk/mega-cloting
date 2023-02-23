@@ -16,3 +16,5 @@ https://flourishing-crumble-1999cf.netlify.app/
 - use redex-saga ([v3](https://github.com/kavishkamk/mega-cloting/tree/v3))
 - add stripe payments
 - add serverless function for payments (using netlify serverless functions)
+- used type script ([v4](https://github.com/kavishkamk/mega-cloting/tree/v4))
+- test memo, lazy reload
