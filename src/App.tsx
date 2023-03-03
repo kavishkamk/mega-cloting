@@ -8,6 +8,8 @@ import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/Navigation";
 import Spinner from "./components/spinner/spinner.component";
 
+import { GlobalStyle } from "./global.styles";
+
 const Authentication = lazy(() => import("./routes/authentication/authentication"));
 const Shop = lazy(() => import("./routes/shop/shop.component"));
 const CheckOut = lazy(() => import("./routes/checkout/checkout.component"));
@@ -24,6 +26,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
